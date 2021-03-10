@@ -1,0 +1,52 @@
+<?php 
+	$mysqli = new mysqli('localhost', 'root', '', 'storeman') or die(mysqli_error($mysqli));
+
+	$id = '';
+	$name = '';
+	$image = '';
+	$cat = '';
+	$price = '';
+	$detail = '';
+
+	if(isset($_POST['save'])){
+		$id = $_POST['id'];
+		$name = $_POST['name'];
+		$image = $_POST['image'];
+		$cat = $_POST['cat'];
+		$price = $_POST['price'];
+		$detail = $_POST['detail'];
+
+		$mysqli -> query("INSERT INTO product (ProductId, Productname, Image, CatId, Price, Detail) VALUES ('$id', '$name', '$image', '$cat', '$price', '$detail')") or die($mysqli->error);
+		header('location: edit_delete.php');
+	}
+	if(isset($_GET['delete'])){
+		$id = $_GET['delete'];
+		$mysqli -> query("DELETE FROM product where ProductId = $id") or die($mysqli -> error());
+
+		header('location: edit_delete.php');
+	}
+	if (isset($_GET['edit'])) {
+		$id = $_GET['edit'];
+		$result = $mysqli -> query("SELECT * FROM product WHERE ProductId = $id") or die($mysqli -> error());
+		if(count($result)==1){
+			$row = $result -> fetch_array();//lay du lieu
+			$id = $row['id'];
+			$name = $row['name'];
+			$image = $row['image'];
+			$cat = $row['cat'];
+			$price = $row['price'];
+			$detail = $row['detail'];
+		}
+		header('location: edit.php');
+	}
+	if (isset($_POST['update'])) {
+		$id = $_POST['id'];
+		$name = $_POST['name'];
+		$image = $_POST['image'];
+		$cat = $_POST['cat'];
+		$price = $_POST['price'];
+		$detail = $_POST['detail'];
+		$mysqli -> query("UPDATE product SET ProductId = '$id', Productname = '$name', Image = '$image', CatId = '$cat', Price = '$price', Detail = '$detail' WHERE ProductId = $id") or die($mysqli -> error);
+		header('location: edit_delete.php');	
+	}
+?>
