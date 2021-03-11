@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Home</title>
 </head>
 <body>
     <h1>ATN Company</h1>
@@ -16,14 +16,14 @@
     <table>
         <tr>
             <td>Name</td>
-            <td>Image</td>
             <td>Price</td>
+            <td>Delete</td>
         </tr>
         {{#each model}}
         <tr>
             <td><a href="edit?pid={{_id}}">{{productName}}</a></td>
-            <td> <a href="edit?pid={{}}">{{Image}}</a></td>
             <td>{{price}}</td>
+            <td><a href="/delete?pid={{_id}}">{{_id}}</a></td>
         </tr>
         {{/each}}
     </table>
