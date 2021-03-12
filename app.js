@@ -32,7 +32,6 @@ app.post('/update',async (req,res)=>{
     let dbo = client.db("MyDatabase");
     
     let nameInput = req.body.productName;
-    let imageInput = req.body.productImage;
     let priceInput = req.body.price;
     let idInput = req.body.pid;
 
