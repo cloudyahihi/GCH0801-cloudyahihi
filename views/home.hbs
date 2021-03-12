@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<style>
+    body{
+        background-image: "./background.jpg";
+    }
+    .navigationbar li{
+		display: inline-block;
+    }
+</style>
+<body>
+    <div align="center">
+        <h1>ATN Company</h1>
+    </div>
+     <div align="right">
+        <form action="/search" method="post">
+            <input type="text" name="txtSearch" placeholder="Prodcut's name">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <div class="navigationbar">
+        <ul>
+            <li><a href="/new">Add New Product</a></li>
+            <li><a href="./home.hbs">Back to home</a></li>
+        </ul>
+    </div>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Image</td>
+            <td>Price</td>
+            <td>Delete</td>
+        </tr>
+        {{#each model}}
+        <tr>
+            <td><a href="edit?pid={{_id}}">{{productName}}</a></td>
+            <td>{{image}}</td>
+            <td>{{price}}</td>
+            <td><a href="/delete?pid={{_id}}">{{delete?pid}}</a></td>
+        </tr>
+        {{/each}}
+    </table>
+</body>
+</html>
