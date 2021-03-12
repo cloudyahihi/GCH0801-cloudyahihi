@@ -87,25 +87,6 @@ app.post('/insert',async (req,res)=>{
     res.render('home',{model:results})
 })
 
-// app.use(session({secret: 'matkhaukhongaibiet_khongcannho',saveUninitialized: true,resave: true}));
-
-// app.post('/doLogin',(req,res)=>{
-//     let nameInput = req.body.txtName;
-//     let passInput = req.body.txtPassword;
-//     if(nameInput != 'admin' || passInput !='admin'){
-//         res.render('login',{errorMsg: "Username va mat khau incorrect!"})
-//     }else{
-//         //save user name to session befor login successfully!
-//        myses = req.session;
-//        myses.userName = nameInput;
-//        res.redirect('/')
-//     }
-// })
-
-// app.get('/login',(req,res)=>{
-//     res.render('login')
-// })
-
 var PORT = process.env.PORT || 5000
 app.listen(PORT);
 console.log("Server is running at " + PORT)
