@@ -16,6 +16,10 @@ app.set('view engine','hbs')
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }))
 
+app.engine('hbs',engine.handlebats);
+app.set('views', './views');
+app.set('view engine','hns');
+
 app.get('/edit', async(req,res)=>{
     let id = req.query.pid;
     var ObjectID = require('mongodb').ObjectID;
