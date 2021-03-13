@@ -28,7 +28,6 @@
     <div class="navigationbar">
         <ul>
             <li><a href="/new">Add New Product</a></li>
-            <li><a href=".toyStore.hbs">Back to home</a></li>
         </ul>
     </div>
     <table>
@@ -43,7 +42,7 @@
             <td><a href="edit?pid={{_id}}">{{productName}}</a></td>
             <td>{{_price}}</td>
             <td>{{_amount}}</td>
-            <td><a href="/delete?pid={{_id}}">{{delete?pid}}</a></td>
+            <td><a href="/delete?pid={{_id}}">Delete</a></td>
         </tr>
         {{/each}}
     </table>
