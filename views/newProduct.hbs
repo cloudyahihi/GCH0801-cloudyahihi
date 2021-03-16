@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Product</title>
+</head>
+<style>
+    body{
+        background-image: <img src="background.jpg" alt="background">;
+    }
+    .header{
+        background-color: blueviolet;
+    }
+    .bottom{
+        background-color: cyan;
+    }
+</style>
+<body>
+    <div class="header" align="center">
+        <h1>ATN TOY STORE</h1>
+    </div>
+    <div align = "center">
+        <h1>Add new product to store webpage</h1>
+    </div>
+    <div align="center">
+     <form action="/insert" method="POST">
+        Product Name<input type="text" name="productName">
+        <br>
+        Price <input type="text" name="price" id=""> 
+        <br>
+        <input type="submit" value="Insert">
+    </form>
+    </div>
+    <div class="bottom" align="center">
+        <p>Vietnam toy store</p>
+    </div>
+</body>
+</html>
